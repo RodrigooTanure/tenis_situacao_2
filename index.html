@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Situação Quadras</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <canvas id="img-situacao" width="400" height="400" style="border: 1px solid #000; display: none;"></canvas>
+  <br />
+    <button id="baixar-img">Download</button>
+  <script>
+    const canvas = document.getElementById('img-situacao');
+    const ctx = canvas.getContext('2d');
+  
+    const img = new Image();
+    img.crossOrigin = "anonymous";  // importante para habilitar CORS
+    img.src = 'https://i.imgur.com/fury7YM.png';
+  
+    img.onload = function() {
+      // Desenha a imagem na posição (0,0) e ajusta para o tamanho do canvas
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      
+      
+        // Box 1
+        let x = 55; // distância da esquerda do canvas
+        let y = 70; // distância do topo do canvas
+        let width = 50;
+        let height = 50;
+
+        // Desenha o retângulo azul
+        ctx.fillStyle = '#1bb76e';
+        ctx.fillRect(x, y, width, height);
+
+        // Desenha o ícone "check" manualmente
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+
+        ctx.beginPath();
+        // Começa no canto inferior esquerdo do check
+        ctx.moveTo(x + width * 0.2, y + height * 0.55);
+        // Vai para o meio inferior
+        ctx.lineTo(x + width * 0.45, y + height * 0.8);
+        // Vai para o topo direito do check
+        ctx.lineTo(x + width * 0.8, y + height * 0.3);
+
+        ctx.stroke();
+        
+        // Box 2
+        let x_2 = 185; // distância da esquerda do canvas
+        let y_2 = 70; // distância do topo do canvas
+        let width_2 = 50;
+        let height_2 = 50;
+
+        // Desenha o retângulo azul
+        ctx.fillStyle = '#1bb76e';
+        ctx.fillRect(x_2, y_2, width_2, height_2);
+
+        // Desenha o ícone "check" manualmente
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+
+        ctx.beginPath();
+        // Começa no canto inferior esquerdo do check
+        ctx.moveTo(x_2 + width_2 * 0.2, y_2 + height_2 * 0.55);
+        // Vai para o meio inferior
+        ctx.lineTo(x_2 + width_2 * 0.45, y_2 + height_2 * 0.8);
+        // Vai para o topo direito do check
+        ctx.lineTo(x_2 + width_2 * 0.8, y_2 + height_2 * 0.3);
+
+        ctx.stroke();
+
+        // Box 3
+        let x_3 = 305; // distância da esquerda do canvas
+        let y_3 = 70; // distância do topo do canvas
+        let width_3 = 50;
+        let height_3 = 50;
+
+        // Desenha o retângulo azul
+        ctx.fillStyle = '#1bb76e';
+        ctx.fillRect(x_3, y_3, width_3, height_3);
+
+        // Desenha o ícone "check" manualmente
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+
+        ctx.beginPath();
+        // Começa no canto inferior esquerdo do check
+        ctx.moveTo(x_3 + width_3 * 0.2, y_3 + height_3 * 0.55);
+        // Vai para o meio inferior
+        ctx.lineTo(x_3 + width_3 * 0.45, y_3 + height_3 * 0.8);
+        // Vai para o topo direito do check
+        ctx.lineTo(x_3 + width_3 * 0.8, y_3 + height_3 * 0.3);
+
+        ctx.stroke();
+
+        // Box 4
+        let x_4 = 55; // distância da esquerda do canvas
+        let y_4 = 210; // distância do topo do canvas
+        let width_4 = 50;
+        let height_4 = 50;
+
+        // Desenha o retângulo azul
+        ctx.fillStyle = '#1bb76e';
+        ctx.fillRect(x_4, y_4, width_4, height_4);
+
+        // Desenha o ícone "check" manualmente
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+
+        ctx.beginPath();
+        // Começa no canto inferior esquerdo do check
+        ctx.moveTo(x_4 + width_4 * 0.2, y_4 + height_4 * 0.55);
+        // Vai para o meio inferior
+        ctx.lineTo(x_4 + width_4 * 0.45, y_4 + height_4 * 0.8);
+        // Vai para o topo direito do check
+        ctx.lineTo(x_4 + width_4 * 0.8, y_4 + height_4 * 0.3);
+
+        ctx.stroke();
+
+        // Box 5
+        let x_5 = 185; // distância da esquerda do canvas
+        let y_5 = 210; // distância do topo do canvas
+        let width_5 = 50;
+        let height_5 = 50;
+
+        // Desenha o retângulo azul
+        ctx.fillStyle = '#1bb76e';
+        ctx.fillRect(x_5, y_5, width_5, height_5);
+
+        // Desenha o ícone "check" manualmente
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+
+        ctx.beginPath();
+        // Começa no canto inferior esquerdo do check
+        ctx.moveTo(x_5 + width_5 * 0.2, y_5 + height_5 * 0.55);
+        // Vai para o meio inferior
+        ctx.lineTo(x_5 + width_5 * 0.45, y_5 + height_5 * 0.8);
+        // Vai para o topo direito do check
+        ctx.lineTo(x_5 + width_5 * 0.8, y_5 + height_5 * 0.3);
+
+        ctx.stroke();
+
+        // Box 6
+        let x_6 = 305; // distância da esquerda do canvas
+        let y_6 = 210; // distância do topo do canvas
+        let width_6 = 50;
+        let height_6 = 50;
+
+        // Desenha o retângulo azul
+        ctx.fillStyle = '#1bb76e';
+        ctx.fillRect(x_6, y_6, width_6, height_6);
+
+        // Desenha o ícone "check" manualmente
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+
+        ctx.beginPath();
+        // Começa no canto inferior esquerdo do check
+        ctx.moveTo(x_6 + width_6 * 0.2, y_6 + height_6 * 0.55);
+        // Vai para o meio inferior
+        ctx.lineTo(x_6 + width_6 * 0.45, y_6 + height_6 * 0.8);
+        // Vai para o topo direito do check
+        ctx.lineTo(x_6 + width_6 * 0.8, y_6 + height_6 * 0.3);
+
+        ctx.stroke();
+
+        // Box 7
+        let x_7 = 185; // distância da esquerda do canvas
+        let y_7 = 333; // distância do topo do canvas
+        let width_7 = 50;
+        let height_7 = 50;
+
+        // Desenha o retângulo azul
+        ctx.fillStyle = '#1bb76e';
+        ctx.fillRect(x_7, y_7, width_7, height_7);
+
+        // Desenha o ícone "check" manualmente
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+
+        ctx.beginPath();
+        // Começa no canto inferior esquerdo do check
+        ctx.moveTo(x_7 + width_7 * 0.2, y_7 + height_7 * 0.55);
+        // Vai para o meio inferior
+        ctx.lineTo(x_7 + width_7 * 0.45, y_7 + height_7 * 0.8);
+        // Vai para o topo direito do check
+        ctx.lineTo(x_7 + width_7 * 0.8, y_7 + height_7 * 0.3);
+
+        ctx.stroke();
+    }
+
+    document.querySelector("#baixar-img").addEventListener('click', function() {
+    // Converte o conteúdo do canvas para URL de imagem
+    const imageURL = canvas.toDataURL('image/png');
+
+    // Cria um link temporário para download
+    const link = document.createElement('a');
+    link.href = imageURL;
+    link.download = 'minha-imagem.png'; // nome do arquivo que será baixado
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+  </script>
+</body>
+</html>
