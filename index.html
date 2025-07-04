@@ -135,8 +135,8 @@
         let temValorX = Array.from(document.querySelectorAll('select'))
                      .some(select => select.value === 'x');
 
-    if(false) {
-    // if(temValorX) {
+    // if(false) {
+    if(temValorX) {
        alert("Falta!!!!"); 
     } else {
 
@@ -460,6 +460,7 @@
         const mes = String(agora.getMonth() + 1).padStart(2, '0'); // mês começa em 0
         const hora = String(agora.getHours()).padStart(2, '0');
         const minuto = String(agora.getMinutes()).padStart(2, '0');
+        const sec = String(agora.getSeconds()).padStart(2, '0');
 
         // Formata
         const dataTexto = `${dia}/${mes}`;
@@ -488,7 +489,7 @@
         // Cria um link temporário para download
         const link = document.createElement('a');
         link.href = imageURL;
-        link.download = 'minha-imagem.png'; // nome do arquivo que será baixado
+        link.download = `situacao_quadra_${dataTexto}${horaTexto + sec}.png`; // nome do arquivo que será baixado
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
