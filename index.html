@@ -4,212 +4,459 @@
   <meta charset="UTF-8" />
   <title>Situação Quadras</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
+<style>
+    * {
+        padding: 0;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    body {
+        font-family: 'roboto';
+    }
+
+    button {
+    width: 100%;           /* Ocupa a linha toda */
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(37, 117, 252, 0.4);
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    select {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #000;
+  border-radius: 6px;
+  background-color: white;
+  color: #333;
+  appearance: none;        /* Remove estilo padrão do navegador */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray"><polygon points="0,0 16,0 8,10"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+</style>
 <body>
     <canvas id="img-situacao" width="400" height="400" style="border: 1px solid #000; display: none;"></canvas>
   <br />
-    <button id="baixar-img">Download</button>
+  <div>
+    <div style="text-align: center;">
+        <h1>Situação Quadras</h1>
+    </div>
+    <div style="padding: 10px;">
+        <div>
+            <label for="q_1">Quadra 2:</label>
+            <select id="q_1">
+                <option value="x" selected>Selecione Condição</option>
+                <option value="1">Liberada</option>
+                <option value="0">Interditada</option>
+            </select>  
+        </div>
+        <br/>
+        <div>
+            <label for="q_2">Quadra 2:</label>
+            <select id="q_2">
+                <option value="x">Selecione Condição</option>
+                <option value="1">Liberada</option>
+                <option value="0">Interditada</option>
+            </select>  
+        </div>
+        <br/>
+        <div>
+            <label for="q_3">Quadra 3:</label>
+            <select id="q_3">
+                <option value="x">Selecione Condição</option>
+                <option value="1">Liberada</option>
+                <option value="0">Interditada</option>
+            </select>  
+        </div>
+        <br/>
+        <div>
+            <label for="q_4">Quadra 4:</label>
+            <select id="q_4">
+                <option value="x">Selecione Condição</option>
+                <option value="1">Liberada</option>
+                <option value="0">Interditada</option>
+            </select>  
+        </div>
+        <br/>
+        <div>
+            <label for="q_5">Quadra 5:</label>
+            <select id="q_5">
+                <option value="x">Selecione Condição</option>
+                <option value="1">Liberada</option>
+                <option value="0">Interditada</option>
+            </select>  
+        </div>
+        <br/>
+        <div>
+            <label for="q_6">Quadra 6:</label>
+            <select id="q_6">
+                <option value="x">Selecione Condição</option>
+                <option value="1">Liberada</option>
+                <option value="0">Interditada</option>
+            </select>  
+        </div>
+        <br/>
+        <div>
+            <label for="q_7">Quadra 7:</label>
+            <select id="q_7">
+                <option value="x">Selecione Condição</option>
+                <option value="1">Liberada</option>
+                <option value="0">Interditada</option>
+            </select>  
+        </div>
+        <br/>
+    </div>
+    <div style="padding: 10px;">
+      <button id="baixar-img">Download</button>
+    </div>
+
+</body>
   <script>
     const canvas = document.getElementById('img-situacao');
     const ctx = canvas.getContext('2d');
   
-    const img = new Image();
-    img.crossOrigin = "anonymous";  // importante para habilitar CORS
-    img.src = 'https://i.imgur.com/fury7YM.png';
-  
-    img.onload = function() {
-      // Desenha a imagem na posição (0,0) e ajusta para o tamanho do canvas
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      
-      
-        // Box 1
-        let x = 55; // distância da esquerda do canvas
-        let y = 70; // distância do topo do canvas
-        let width = 50;
+    document.querySelector("#baixar-img").addEventListener('click', function() {
+
+        let temValorX = Array.from(document.querySelectorAll('select'))
+                     .some(select => select.value === 'x');
+
+    if(temValorX) {
+       alert("Falta!!!!"); 
+    } else {
+
+        
+        const img = new Image();
+        img.crossOrigin = "anonymous";  // importante para habilitar CORS
+        img.src = 'https://i.imgur.com/fury7YM.png';
+        
+        img.onload = function() {
+            // Desenha a imagem na posição (0,0) e ajusta para o tamanho do canvas
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            
+            
+            // Box 1
+            let cor_1;
+            let q_1 = document.querySelector("#q_1").value;
+            q_1 == "1" ? cor_1 = '#1bb76e' : cor_1 = 'red';
+            
+            let x = 55; // distância da esquerda do canvas
+            let y = 70; // distância do topo do canvas
+            let width = 50;
         let height = 50;
 
         // Desenha o retângulo azul
-        ctx.fillStyle = '#1bb76e';
+        ctx.fillStyle = cor_1;
         ctx.fillRect(x, y, width, height);
-
+        
         // Desenha o ícone "check" manualmente
         ctx.strokeStyle = 'white';
         ctx.lineWidth = 5;
         ctx.lineCap = 'round';
-
-        ctx.beginPath();
-        // Começa no canto inferior esquerdo do check
-        ctx.moveTo(x + width * 0.2, y + height * 0.55);
-        // Vai para o meio inferior
-        ctx.lineTo(x + width * 0.45, y + height * 0.8);
-        // Vai para o topo direito do check
-        ctx.lineTo(x + width * 0.8, y + height * 0.3);
-
-        ctx.stroke();
+        
+        if(q_1 == "1") {
+            ctx.beginPath();
+            // Começa no canto inferior esquerdo do check
+            ctx.moveTo(x + width * 0.2, y + height * 0.55);
+            // Vai para o meio inferior
+            ctx.lineTo(x + width * 0.45, y + height * 0.8);
+            // Vai para o topo direito do check
+            ctx.lineTo(x + width * 0.8, y + height * 0.3);
+            
+            ctx.stroke();
+        } else {
+            ctx.beginPath();
+            // Linha diagonal da esquerda superior para direita inferior
+            ctx.moveTo(x + width * 0.2, y + height * 0.2);
+            ctx.lineTo(x + width * 0.8, y + height * 0.8);
+            
+            // Linha diagonal da direita superior para esquerda inferior
+            ctx.moveTo(x + width * 0.8, y + height * 0.2);
+            ctx.lineTo(x + width * 0.2, y + height * 0.8);
+            
+            ctx.stroke();
+        }
         
         // Box 2
+        let cor_2;
+        let q_2 = document.querySelector("#q_2").value;
+        q_2 == "1" ? cor_2 = '#1bb76e' : cor_2 = 'red';
+        
         let x_2 = 185; // distância da esquerda do canvas
         let y_2 = 70; // distância do topo do canvas
         let width_2 = 50;
         let height_2 = 50;
-
+        
         // Desenha o retângulo azul
-        ctx.fillStyle = '#1bb76e';
+        ctx.fillStyle = cor_2;
         ctx.fillRect(x_2, y_2, width_2, height_2);
-
+        
         // Desenha o ícone "check" manualmente
         ctx.strokeStyle = 'white';
         ctx.lineWidth = 5;
         ctx.lineCap = 'round';
-
-        ctx.beginPath();
-        // Começa no canto inferior esquerdo do check
-        ctx.moveTo(x_2 + width_2 * 0.2, y_2 + height_2 * 0.55);
-        // Vai para o meio inferior
-        ctx.lineTo(x_2 + width_2 * 0.45, y_2 + height_2 * 0.8);
-        // Vai para o topo direito do check
-        ctx.lineTo(x_2 + width_2 * 0.8, y_2 + height_2 * 0.3);
-
-        ctx.stroke();
-
+        
+        if(q_2 == "1") { 
+            ctx.beginPath();
+            // Começa no canto inferior esquerdo do check
+            ctx.moveTo(x_2 + width_2 * 0.2, y_2 + height_2 * 0.55);
+            // Vai para o meio inferior
+            ctx.lineTo(x_2 + width_2 * 0.45, y_2 + height_2 * 0.8);
+            // Vai para o topo direito do check
+            ctx.lineTo(x_2 + width_2 * 0.8, y_2 + height_2 * 0.3);
+            
+            ctx.stroke();
+        } else {
+            ctx.beginPath();
+            // Linha diagonal da esquerda superior para direita inferior
+            ctx.moveTo(x_2 + width_2 * 0.2, y_2 + height_2 * 0.2);
+            ctx.lineTo(x_2 + width_2 * 0.8, y_2 + height_2 * 0.8);
+            
+            // Linha diagonal da direita superior para esquerda inferior
+            ctx.moveTo(x_2 + width_2 * 0.8, y_2 + height_2 * 0.2);
+            ctx.lineTo(x_2 + width_2 * 0.2, y_2 + height_2 * 0.8);
+            
+            ctx.stroke();
+        }
+        
         // Box 3
+        let cor_3;
+        let q_3 = document.querySelector("#q_3").value;
+        q_3 == "1" ? cor_3 = '#1bb76e' : cor_3 = 'red';
+        
         let x_3 = 305; // distância da esquerda do canvas
         let y_3 = 70; // distância do topo do canvas
         let width_3 = 50;
         let height_3 = 50;
-
+        
         // Desenha o retângulo azul
-        ctx.fillStyle = '#1bb76e';
+        ctx.fillStyle = cor_3;
         ctx.fillRect(x_3, y_3, width_3, height_3);
-
+        
         // Desenha o ícone "check" manualmente
         ctx.strokeStyle = 'white';
         ctx.lineWidth = 5;
         ctx.lineCap = 'round';
-
-        ctx.beginPath();
-        // Começa no canto inferior esquerdo do check
-        ctx.moveTo(x_3 + width_3 * 0.2, y_3 + height_3 * 0.55);
-        // Vai para o meio inferior
-        ctx.lineTo(x_3 + width_3 * 0.45, y_3 + height_3 * 0.8);
-        // Vai para o topo direito do check
-        ctx.lineTo(x_3 + width_3 * 0.8, y_3 + height_3 * 0.3);
-
-        ctx.stroke();
-
+        
+        if(q_3 == "1") { 
+            ctx.beginPath();
+            // Começa no canto inferior esquerdo do check
+            ctx.moveTo(x_3 + width_3 * 0.2, y_3 + height_3 * 0.55);
+            // Vai para o meio inferior
+            ctx.lineTo(x_3 + width_3 * 0.45, y_3 + height_3 * 0.8);
+            // Vai para o topo direito do check
+            ctx.lineTo(x_3 + width_3 * 0.8, y_3 + height_3 * 0.3);
+            
+            ctx.stroke();
+        } else {
+            ctx.beginPath();
+            // Linha diagonal da esquerda superior para direita inferior
+            ctx.moveTo(x_3 + width_3 * 0.2, y_3 + height_3 * 0.2);
+            ctx.lineTo(x_3 + width_3 * 0.8, y_3 + height_3 * 0.8);
+            
+            // Linha diagonal da direita superior para esquerda inferior
+            ctx.moveTo(x_3 + width_3 * 0.8, y_3 + height_3 * 0.2);
+            ctx.lineTo(x_3 + width_3 * 0.2, y_3 + height_3 * 0.8);
+            
+            ctx.stroke();
+        }
+        
         // Box 4
+        let cor_4;
+        let q_4 = document.querySelector("#q_4").value;
+        q_4 == "1" ? cor_4 = '#1bb76e' : cor_4 = 'red';
+        
         let x_4 = 55; // distância da esquerda do canvas
         let y_4 = 210; // distância do topo do canvas
         let width_4 = 50;
         let height_4 = 50;
-
+        
         // Desenha o retângulo azul
-        ctx.fillStyle = '#1bb76e';
+        ctx.fillStyle = cor_4;
         ctx.fillRect(x_4, y_4, width_4, height_4);
-
+        
         // Desenha o ícone "check" manualmente
         ctx.strokeStyle = 'white';
         ctx.lineWidth = 5;
         ctx.lineCap = 'round';
-
-        ctx.beginPath();
-        // Começa no canto inferior esquerdo do check
-        ctx.moveTo(x_4 + width_4 * 0.2, y_4 + height_4 * 0.55);
-        // Vai para o meio inferior
-        ctx.lineTo(x_4 + width_4 * 0.45, y_4 + height_4 * 0.8);
-        // Vai para o topo direito do check
-        ctx.lineTo(x_4 + width_4 * 0.8, y_4 + height_4 * 0.3);
-
-        ctx.stroke();
-
+        
+        if(q_4 == "1") { 
+            ctx.beginPath();
+            // Começa no canto inferior esquerdo do check
+            ctx.moveTo(x_4 + width_4 * 0.2, y_4 + height_4 * 0.55);
+            // Vai para o meio inferior
+            ctx.lineTo(x_4 + width_4 * 0.45, y_4 + height_4 * 0.8);
+            // Vai para o topo direito do check
+            ctx.lineTo(x_4 + width_4 * 0.8, y_4 + height_4 * 0.3);
+            
+            ctx.stroke();
+        } else {
+            ctx.beginPath();
+            // Linha diagonal da esquerda superior para direita inferior
+            ctx.moveTo(x_4 + width_4 * 0.2, y_4 + height_4 * 0.2);
+            ctx.lineTo(x_4 + width_4 * 0.8, y_4 + height_4 * 0.8);
+            
+            // Linha diagonal da direita superior para esquerda inferior
+            ctx.moveTo(x_4 + width_4 * 0.8, y_4 + height_4 * 0.2);
+            ctx.lineTo(x_4 + width_4 * 0.2, y_4 + height_4 * 0.8);
+            
+            ctx.stroke();
+        }
+        
         // Box 5
+        let cor_5;
+        let q_5 = document.querySelector("#q_5").value;
+        q_5 == "1" ? cor_5 = '#1bb76e' : cor_5 = 'red';
+        
         let x_5 = 185; // distância da esquerda do canvas
         let y_5 = 210; // distância do topo do canvas
         let width_5 = 50;
         let height_5 = 50;
-
+        
         // Desenha o retângulo azul
-        ctx.fillStyle = '#1bb76e';
+        ctx.fillStyle = cor_5;
         ctx.fillRect(x_5, y_5, width_5, height_5);
-
+        
         // Desenha o ícone "check" manualmente
         ctx.strokeStyle = 'white';
         ctx.lineWidth = 5;
         ctx.lineCap = 'round';
-
-        ctx.beginPath();
-        // Começa no canto inferior esquerdo do check
-        ctx.moveTo(x_5 + width_5 * 0.2, y_5 + height_5 * 0.55);
-        // Vai para o meio inferior
-        ctx.lineTo(x_5 + width_5 * 0.45, y_5 + height_5 * 0.8);
-        // Vai para o topo direito do check
-        ctx.lineTo(x_5 + width_5 * 0.8, y_5 + height_5 * 0.3);
-
-        ctx.stroke();
-
+        
+        if(q_5 == "1") {  
+            ctx.beginPath();
+            // Começa no canto inferior esquerdo do check
+            ctx.moveTo(x_5 + width_5 * 0.2, y_5 + height_5 * 0.55);
+            // Vai para o meio inferior
+            ctx.lineTo(x_5 + width_5 * 0.45, y_5 + height_5 * 0.8);
+            // Vai para o topo direito do check
+            ctx.lineTo(x_5 + width_5 * 0.8, y_5 + height_5 * 0.3);
+            
+            ctx.stroke();
+        } else {
+            ctx.beginPath();
+            // Linha diagonal da esquerda superior para direita inferior
+            ctx.moveTo(x_5 + width_5 * 0.2, y_5 + height_5 * 0.2);
+            ctx.lineTo(x_5 + width_5 * 0.8, y_5 + height_5 * 0.8);
+            
+            // Linha diagonal da direita superior para esquerda inferior
+            ctx.moveTo(x_5 + width_5 * 0.8, y_5 + height_5 * 0.2);
+            ctx.lineTo(x_5 + width_5 * 0.2, y_5 + height_5 * 0.8);
+            
+            ctx.stroke();
+        }
+        
         // Box 6
+        let cor_6;
+        let q_6 = document.querySelector("#q_6").value;
+        q_6 == "1" ? cor_6 = '#1bb76e' : cor_6 = 'red';
+        
         let x_6 = 305; // distância da esquerda do canvas
         let y_6 = 210; // distância do topo do canvas
         let width_6 = 50;
         let height_6 = 50;
-
+        
         // Desenha o retângulo azul
-        ctx.fillStyle = '#1bb76e';
+        ctx.fillStyle = cor_6;
         ctx.fillRect(x_6, y_6, width_6, height_6);
-
+        
         // Desenha o ícone "check" manualmente
         ctx.strokeStyle = 'white';
         ctx.lineWidth = 5;
         ctx.lineCap = 'round';
-
-        ctx.beginPath();
-        // Começa no canto inferior esquerdo do check
-        ctx.moveTo(x_6 + width_6 * 0.2, y_6 + height_6 * 0.55);
-        // Vai para o meio inferior
-        ctx.lineTo(x_6 + width_6 * 0.45, y_6 + height_6 * 0.8);
-        // Vai para o topo direito do check
-        ctx.lineTo(x_6 + width_6 * 0.8, y_6 + height_6 * 0.3);
-
-        ctx.stroke();
-
+        
+        if(q_6 == "1") {  
+            ctx.beginPath();
+            // Começa no canto inferior esquerdo do check
+            ctx.moveTo(x_6 + width_6 * 0.2, y_6 + height_6 * 0.55);
+            // Vai para o meio inferior
+            ctx.lineTo(x_6 + width_6 * 0.45, y_6 + height_6 * 0.8);
+            // Vai para o topo direito do check
+            ctx.lineTo(x_6 + width_6 * 0.8, y_6 + height_6 * 0.3);
+            
+            ctx.stroke();
+        } else {
+            ctx.beginPath();
+            // Linha diagonal da esquerda superior para direita inferior
+            ctx.moveTo(x_6 + width_6 * 0.2, y_6 + height_6 * 0.2);
+            ctx.lineTo(x_6 + width_6 * 0.8, y_6 + height_6 * 0.8);
+            
+            // Linha diagonal da direita superior para esquerda inferior
+            ctx.moveTo(x_6 + width_6 * 0.8, y_6 + height_6 * 0.2);
+            ctx.lineTo(x_6 + width_6 * 0.2, y_6 + height_6 * 0.8);
+            
+            ctx.stroke();
+        }
+        
         // Box 7
+        let cor_7;
+        let q_7 = document.querySelector("#q_7").value;
+        q_7 == "1" ? cor_7 = '#1bb76e' : cor_7 = 'red';
+        
         let x_7 = 185; // distância da esquerda do canvas
         let y_7 = 333; // distância do topo do canvas
         let width_7 = 50;
         let height_7 = 50;
-
+        
         // Desenha o retângulo azul
-        ctx.fillStyle = '#1bb76e';
+        ctx.fillStyle = cor_7;
         ctx.fillRect(x_7, y_7, width_7, height_7);
-
+        
         // Desenha o ícone "check" manualmente
         ctx.strokeStyle = 'white';
         ctx.lineWidth = 5;
         ctx.lineCap = 'round';
-
-        ctx.beginPath();
-        // Começa no canto inferior esquerdo do check
-        ctx.moveTo(x_7 + width_7 * 0.2, y_7 + height_7 * 0.55);
-        // Vai para o meio inferior
-        ctx.lineTo(x_7 + width_7 * 0.45, y_7 + height_7 * 0.8);
-        // Vai para o topo direito do check
-        ctx.lineTo(x_7 + width_7 * 0.8, y_7 + height_7 * 0.3);
-
-        ctx.stroke();
+        
+        
+        if(q_7 == "1") {  
+            ctx.beginPath();
+            // Começa no canto inferior esquerdo do check
+            ctx.moveTo(x_7 + width_7 * 0.2, y_7 + height_7 * 0.55);
+            // Vai para o meio inferior
+            ctx.lineTo(x_7 + width_7 * 0.45, y_7 + height_7 * 0.8);
+            // Vai para o topo direito do check
+            ctx.lineTo(x_7 + width_7 * 0.8, y_7 + height_7 * 0.3);
+            
+            ctx.stroke();
+        } else {
+            ctx.beginPath();
+            // Linha diagonal da esquerda superior para direita inferior
+            ctx.moveTo(x_7 + width_7 * 0.2, y_7 + height_7 * 0.2);
+            ctx.lineTo(x_7 + width_7 * 0.8, y_7 + height_7 * 0.8);
+            
+            // Linha diagonal da direita superior para esquerda inferior
+            ctx.moveTo(x_7 + width_7 * 0.8, y_7 + height_7 * 0.2);
+            ctx.lineTo(x_7 + width_7 * 0.2, y_7 + height_7 * 0.8);
+            
+            ctx.stroke();
+        }
+        
+        // Converte o conteúdo do canvas para URL de imagem
+        const imageURL = canvas.toDataURL('image/png');
+        
+        // Cria um link temporário para download
+        const link = document.createElement('a');
+        link.href = imageURL;
+        link.download = 'minha-imagem.png'; // nome do arquivo que será baixado
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
+}
+    
 
-    document.querySelector("#baixar-img").addEventListener('click', function() {
-    // Converte o conteúdo do canvas para URL de imagem
-    const imageURL = canvas.toDataURL('image/png');
-
-    // Cria um link temporário para download
-    const link = document.createElement('a');
-    link.href = imageURL;
-    link.download = 'minha-imagem.png'; // nome do arquivo que será baixado
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
   });
   </script>
-</body>
 </html>
