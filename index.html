@@ -49,6 +49,10 @@
   transition: border-color 0.3s ease;
   font-size: 2em;
 }
+
+    input[type="date"] {
+        display: none;
+    }
 </style>
 <body>
     <canvas id="img-situacao" width="400" height="400" style="border: 1px solid #000; display: none;"></canvas>
@@ -62,16 +66,20 @@
             <label for="q_1">Quadra 1:</label>
             <select id="q_1">
                 <option value="x" selected>Selecione Condição</option>
-                <option value="1">Liberada</option>
+                <option selected value="1">Liberada</option>
                 <option value="0">Interditada</option>
             </select>  
+            <div>
+                <input type="date" id="ipt_prv_q_1">
+                <button id="btn_prv_q_1">Previsao Retorno</button>
+            </div>
         </div>
         <br/>
         <div>
             <label for="q_2">Quadra 2:</label>
             <select id="q_2">
                 <option value="x">Selecione Condição</option>
-                <option value="1">Liberada</option>
+                <option selected value="1">Liberada</option>
                 <option value="0">Interditada</option>
             </select>  
         </div>
@@ -80,7 +88,7 @@
             <label for="q_3">Quadra 3:</label>
             <select id="q_3">
                 <option value="x">Selecione Condição</option>
-                <option value="1">Liberada</option>
+                <option selected value="1">Liberada</option>
                 <option value="0">Interditada</option>
             </select>  
         </div>
@@ -89,7 +97,7 @@
             <label for="q_4">Quadra 4:</label>
             <select id="q_4">
                 <option value="x">Selecione Condição</option>
-                <option value="1">Liberada</option>
+                <option selected value="1">Liberada</option>
                 <option value="0">Interditada</option>
             </select>  
         </div>
@@ -98,7 +106,7 @@
             <label for="q_5">Quadra 5:</label>
             <select id="q_5">
                 <option value="x">Selecione Condição</option>
-                <option value="1">Liberada</option>
+                <option selected value="1">Liberada</option>
                 <option value="0">Interditada</option>
             </select>  
         </div>
@@ -107,7 +115,7 @@
             <label for="q_6">Quadra 6:</label>
             <select id="q_6">
                 <option value="x">Selecione Condição</option>
-                <option value="1">Liberada</option>
+                <option selected value="1">Liberada</option>
                 <option value="0">Interditada</option>
             </select>  
         </div>
@@ -116,11 +124,15 @@
             <label for="q_7">Quadra 7:</label>
             <select id="q_7">
                 <option value="x">Selecione Condição</option>
-                <option value="1">Liberada</option>
+                <option selected value="1">Liberada</option>
                 <option value="0">Interditada</option>
             </select>  
         </div>
         <br/>
+        <!-- <div>
+            <button id="btn-previsao" style="font-size: 2em;">Previsão de retorno</button>
+            <input type="time" style="display: none;" id="ipt-previsao">
+        </div> -->
     </div>
     <div style="padding: 10px;">
       <button id="baixar-img" style="font-size: 2em;">Download</button>
@@ -130,6 +142,24 @@
   <script>
     const canvas = document.getElementById('img-situacao');
     const ctx = canvas.getContext('2d');
+
+    document.addEventListener("DOMContentLoaded", function() {
+    // Seu código JS aqui
+    console.log("DOM totalmente carregado!");
+         document.querySelector("#btn_prv_q_1").addEventListener("click", function() {
+        
+         document.querySelector("#ipt_prv_q_1").showPicker 
+       ? document.querySelector("#ipt_prv_q_1").showPicker()  // Chrome e Edge suportam showPicker
+       : document.querySelector("#ipt_prv_q_1").click();      // fallback pra abrir o seletor
+    });
+});
+
+    // document.querySelector("#btn-previsao").addEventListener("click", function() {
+        
+    //     document.querySelector("#ipt-previsao").showPicker 
+    //   ? document.querySelector("#ipt-previsao").showPicker()  // Chrome e Edge suportam showPicker
+    //   : document.querySelector("#ipt-previsao").click();      // fallback pra abrir o seletor
+    // });
   
     document.querySelector("#baixar-img").addEventListener('click', function() {
 
@@ -462,6 +492,33 @@
         const hora = String(agora.getHours()).padStart(2, '0');
         const minuto = String(agora.getMinutes()).padStart(2, '0');
         const sec = String(agora.getSeconds()).padStart(2, '0');
+
+        // Dados do canvas
+        let canvasWidth = canvas.width;
+        let canvasHeight = canvas.height;
+
+        // Tamanho maior para caber o texto
+        let blocoWidth = 160;
+        let blocoHeight = 70;
+
+        // Posição inferior direita
+        let blocoX = canvasWidth - blocoWidth + 30;
+        let blocoY = canvasHeight - blocoHeight - 20;
+
+        // Retângulo semi-transparente
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+        ctx.fillRect(blocoX, blocoY, blocoWidth, blocoHeight);
+
+        // Texto
+        ctx.fillStyle = 'white';
+        ctx.font = '13px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+
+        // Escreve quebrado em duas linhas
+        ctx.fillText('PREVISÃO DE', blocoX + 5, blocoY + 5);
+        ctx.fillText('RETORNO:', blocoX + 5, blocoY + 22);
+        ctx.fillText('17:30', blocoX + 5, blocoY + 42);
 
         // Formata
         const dataTexto = `${dia}/${mes}`;
