@@ -5,6 +5,7 @@
   <title>Situação Quadras</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>  
 </head>
 <style>
     * {
@@ -19,17 +20,31 @@
     }
 
     button {
-    width: 100%;           /* Ocupa a linha toda */
-    padding: 12px 20px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #fff;
+        width: 100%;           /* Ocupa a linha toda */
+        padding: 12px 20px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(37, 117, 252, 0.4);
+        cursor: pointer;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    #baixar-img {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(37, 117, 252, 0.4);
-    cursor: pointer;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn_prev {
+        font-size: 1.4em;
+        background: linear-gradient(45deg, #f9d423, #00c6a7);
+    }
+
+    .btn_sem_prev {
+        font-size: 1.4em;
+         background: linear-gradient(45deg, #8b0000, #ff4d4d);
     }
 
     select {
@@ -53,6 +68,14 @@
     input[type="time"] {
         display: none;
     }
+
+    .div-prev {
+        padding: 10px;
+        background-color: #eee;
+        border: 1px solid #000;
+        font-size: 1.4em;
+        font-weight: bolder;
+    }
 </style>
 <body>
     <canvas id="img-situacao" width="400" height="400" style="border: 1px solid #000; display: none;"></canvas>
@@ -65,68 +88,176 @@
         <div>
             <label for="q_1">Quadra 1:</label>
             <select id="q_1">
-                <option value="x" selected>Selecione Condição</option>
                 <option selected value="1">Liberada</option>
                 <option value="0">Interditada</option>
+                <option value="R">Ranking</option>
+                <option value="A">Aula</option>
+                <option value="T">Torneio</option>
             </select>  
-            <div>
+            <div style="display: none;">
                 <input type="time" id="ipt_prv_q_1">
-                <button id="btn_prv_q_1">Previsao Retorno</button>
+                <br>
+                <p class="div-prev"><span id="previsao_1">Sem Prev.</span></p>
+                <br>
+                <div style="display: flex;">
+                    <div style="width: 60%; padding-right: 5px;">
+                        <button class="btn_prev" id="btn_prv_q_1">Previsao Retorno</button>
+                    </div>
+                    <div style="width: 40%; padding-left: 5px;">
+                        <button class="btn_sem_prev" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Sem Previsão</button>
+                    </div>                    
+                </div>
             </div>
         </div>
         <br/>
         <div>
             <label for="q_2">Quadra 2:</label>
             <select id="q_2">
-                <option value="x">Selecione Condição</option>
                 <option selected value="1">Liberada</option>
                 <option value="0">Interditada</option>
+                <option value="R">Ranking</option>
+                <option value="A">Aula</option>
+                <option value="T">Torneio</option>
             </select>  
+            <div style="display: none;">
+                <input type="time" id="ipt_prv_q_2">
+                <br>
+                <p class="div-prev"><span id="previsao_2">Sem Prev.</span></p>
+                <br>
+                <div style="display: flex;">
+                    <div style="width: 60%; padding-right: 5px;">
+                        <button class="btn_prev" id="btn_prv_q_2">Previsao Retorno</button>
+                    </div>
+                    <div style="width: 40%; padding-left: 5px;">
+                        <button class="btn_sem_prev" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Sem Previsão</button>
+                    </div>                    
+                </div>
+            </div>
         </div>
         <br/>
         <div>
             <label for="q_3">Quadra 3:</label>
             <select id="q_3">
-                <option value="x">Selecione Condição</option>
                 <option selected value="1">Liberada</option>
                 <option value="0">Interditada</option>
+                <option value="R">Ranking</option>
+                <option value="A">Aula</option>
+                <option value="T">Torneio</option>
             </select>  
+            <div style="display: none;">
+                <input type="time" id="ipt_prv_q_3">
+                <br>
+                <p class="div-prev"><span id="previsao_3">Sem Prev.</span></p>
+                <br>
+                <div style="display: flex;">
+                    <div style="width: 60%; padding-right: 5px;">
+                        <button class="btn_prev" id="btn_prv_q_3">Previsao Retorno</button>
+                    </div>
+                    <div style="width: 40%; padding-left: 5px;">
+                        <button class="btn_sem_prev" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Sem Previsão</button>
+                    </div>                    
+                </div>
+            </div>
         </div>
         <br/>
         <div>
             <label for="q_4">Quadra 4:</label>
             <select id="q_4">
-                <option value="x">Selecione Condição</option>
                 <option selected value="1">Liberada</option>
                 <option value="0">Interditada</option>
+                <option value="R">Ranking</option>
+                <option value="A">Aula</option>
+                <option value="T">Torneio</option>
             </select>  
+            <div style="display: none;">
+                <input type="time" id="ipt_prv_q_4">
+                <br>
+                <p class="div-prev"><span id="previsao_4">Sem Prev.</span></p>
+                <br>
+                <div style="display: flex;">
+                    <div style="width: 60%; padding-right: 5px;">
+                        <button class="btn_prev" id="btn_prv_q_4">Previsao Retorno</button>
+                    </div>
+                    <div style="width: 40%; padding-left: 5px;">
+                        <button class="btn_sem_prev" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Sem Previsão</button>
+                    </div>                    
+                </div>
+            </div>
         </div>
         <br/>
         <div>
             <label for="q_5">Quadra 5:</label>
             <select id="q_5">
-                <option value="x">Selecione Condição</option>
                 <option selected value="1">Liberada</option>
                 <option value="0">Interditada</option>
+                <option value="R">Ranking</option>
+                <option value="A">Aula</option>
+                <option value="T">Torneio</option>
             </select>  
+            <div style="display: none;">
+                <input type="time" id="ipt_prv_q_5">
+                <br>
+                <p class="div-prev"><span id="previsao_5">Sem Prev.</span></p>
+                <br>
+                <div style="display: flex;">
+                    <div style="width: 60%; padding-right: 5px;">
+                        <button class="btn_prev" id="btn_prv_q_5">Previsao Retorno</button>
+                    </div>
+                    <div style="width: 40%; padding-left: 5px;">
+                        <button class="btn_sem_prev" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Sem Previsão</button>
+                    </div>                    
+                </div>
+            </div>
         </div>
         <br/>
         <div>
             <label for="q_6">Quadra 6:</label>
             <select id="q_6">
-                <option value="x">Selecione Condição</option>
                 <option selected value="1">Liberada</option>
                 <option value="0">Interditada</option>
+                <option value="R">Ranking</option>
+                <option value="A">Aula</option>
+                <option value="T">Torneio</option>
             </select>  
+            <div style="display: none;">
+                <input type="time" id="ipt_prv_q_6">
+                <br>
+                <p class="div-prev"><span id="previsao_6">Sem Prev.</span></p>
+                <br>
+                <div style="display: flex;">
+                    <div style="width: 60%; padding-right: 5px;">
+                        <button class="btn_prev" id="btn_prv_q_6">Previsao Retorno</button>
+                    </div>
+                    <div style="width: 40%; padding-left: 5px;">
+                        <button class="btn_sem_prev" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Sem Previsão</button>
+                    </div>                    
+                </div>
+            </div>
         </div>
         <br/>
         <div>
             <label for="q_7">Quadra 7:</label>
             <select id="q_7">
-                <option value="x">Selecione Condição</option>
                 <option selected value="1">Liberada</option>
                 <option value="0">Interditada</option>
+                <option value="R">Ranking</option>
+                <option value="A">Aula</option>
+                <option value="T">Torneio</option>
             </select>  
+            <div style="display: none;">
+                <input type="time" id="ipt_prv_q_7">
+                <br>
+                <p class="div-prev"><span id="previsao_7">Sem Prev.</span></p>
+                <br>
+                <div style="display: flex;">
+                    <div style="width: 60%; padding-right: 5px;">
+                        <button class="btn_prev" id="btn_prv_q_7">Previsao Retorno</button>
+                    </div>
+                    <div style="width: 40%; padding-left: 5px;">
+                        <button class="btn_sem_prev" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Sem Previsão</button>
+                    </div>                    
+                </div>
+            </div>
         </div>
         <br/>
         <!-- <div>
@@ -146,13 +277,73 @@
     document.addEventListener("DOMContentLoaded", function() {
     // Seu código JS aqui
     console.log("DOM totalmente carregado!");
-         document.querySelector("#btn_prv_q_1").addEventListener("click", function() {
-        
-         document.querySelector("#ipt_prv_q_1").showPicker 
-       ? document.querySelector("#ipt_prv_q_1").showPicker()  // Chrome e Edge suportam showPicker
-       : document.querySelector("#ipt_prv_q_1").click();      // fallback pra abrir o seletor
+
+    $(".btn_prv").on("click", function() {
+        console.log($(this).parent().html());
+        $(this).parent().find("span").text($(this).parent("input").val());    
     });
-});
+
+    $("input[type='time']").on("change", function() {
+        // alert("qwe");
+        $(this).parent().find("span").text("Prev. " + $(this).val());
+    })
+
+    $(".btn_sem_prev").on("click", function() {
+        $(this).parent().parent().parent().find("span").text("Sem Prev.");
+        console.log($(this).parent().parent().parent().html());
+    });
+
+    $("select").on("change", function(e) {
+        console.log($(this).val());
+        console.log($(this).parent().find("div").html());
+        if($(this).val() == 1) {
+            $(this).parent().find("div").hide();
+        } else {
+            $(this).parent().find("div").show();
+        }
+    })
+         document.querySelector("#btn_prv_q_1").addEventListener("click", function() {
+                document.querySelector("#ipt_prv_q_1").showPicker 
+            ? document.querySelector("#ipt_prv_q_1").showPicker()  // Chrome e Edge suportam showPicker
+            : document.querySelector("#ipt_prv_q_1").click();      // fallback pra abrir o seletor
+        });
+
+         document.querySelector("#btn_prv_q_2").addEventListener("click", function() {
+                document.querySelector("#ipt_prv_q_2").showPicker 
+            ? document.querySelector("#ipt_prv_q_2").showPicker()  // Chrome e Edge suportam showPicker
+            : document.querySelector("#ipt_prv_q_2").click();      // fallback pra abrir o seletor
+        });
+       
+         document.querySelector("#btn_prv_q_3").addEventListener("click", function() {
+                document.querySelector("#ipt_prv_q_3").showPicker 
+            ? document.querySelector("#ipt_prv_q_3").showPicker()  // Chrome e Edge suportam showPicker
+            : document.querySelector("#ipt_prv_q_3").click();      // fallback pra abrir o seletor
+        });
+        
+         document.querySelector("#btn_prv_q_4").addEventListener("click", function() {
+                document.querySelector("#ipt_prv_q_4").showPicker 
+            ? document.querySelector("#ipt_prv_q_4").showPicker()  // Chrome e Edge suportam showPicker
+            : document.querySelector("#ipt_prv_q_4").click();      // fallback pra abrir o seletor
+        });
+
+         document.querySelector("#btn_prv_q_5").addEventListener("click", function() {
+                document.querySelector("#ipt_prv_q_5").showPicker 
+            ? document.querySelector("#ipt_prv_q_5").showPicker()  // Chrome e Edge suportam showPicker
+            : document.querySelector("#ipt_prv_q_5").click();      // fallback pra abrir o seletor
+        });
+     
+         document.querySelector("#btn_prv_q_6").addEventListener("click", function() {
+                document.querySelector("#ipt_prv_q_6").showPicker 
+            ? document.querySelector("#ipt_prv_q_6").showPicker()  // Chrome e Edge suportam showPicker
+            : document.querySelector("#ipt_prv_q_6").click();      // fallback pra abrir o seletor
+        });
+       
+         document.querySelector("#btn_prv_q_7").addEventListener("click", function() {
+                document.querySelector("#ipt_prv_q_7").showPicker 
+            ? document.querySelector("#ipt_prv_q_7").showPicker()  // Chrome e Edge suportam showPicker
+            : document.querySelector("#ipt_prv_q_7").click();      // fallback pra abrir o seletor
+        });
+    });
 
     // document.querySelector("#btn-previsao").addEventListener("click", function() {
         
@@ -160,6 +351,20 @@
     //   ? document.querySelector("#ipt-previsao").showPicker()  // Chrome e Edge suportam showPicker
     //   : document.querySelector("#ipt-previsao").click();      // fallback pra abrir o seletor
     // });
+
+    function selecionaCores(t) {
+        if(t == '1') {
+            return '#1bb76e';
+        } else if(t == '0') {
+            return 'red';
+        } else if(t == 'R') {
+            return
+        } else if(t == 'A') {
+            return '#8b4513';
+        } else if(t == 'T') {
+            return
+        }
+    }
   
     document.querySelector("#baixar-img").addEventListener('click', function() {
 
@@ -184,12 +389,13 @@
             // Box 1
             let cor_1;
             let q_1 = document.querySelector("#q_1").value;
-            q_1 == "1" ? cor_1 = '#1bb76e' : cor_1 = 'red';
-            
+            // q_1 == "1" ? cor_1 = '#1bb76e' : cor_1 = 'red';
+            cor_1 = selecionaCores(q_1);
+
             let x = 55; // distância da esquerda do canvas
             let y = 70; // distância do topo do canvas
             let width = 50;
-        let height = 50;
+            let height = 40;
 
         // Desenha o retângulo azul
         ctx.fillStyle = cor_1;
@@ -210,7 +416,7 @@
             ctx.lineTo(x + width * 0.8, y + height * 0.3);
             
             ctx.stroke();
-        } else {
+        } else if(q_1 == "0") {
             ctx.beginPath();
             // Linha diagonal da esquerda superior para direita inferior
             ctx.moveTo(x + width * 0.2, y + height * 0.2);
@@ -221,6 +427,16 @@
             ctx.lineTo(x + width * 0.2, y + height * 0.8);
             
             ctx.stroke();
+        } else if(q_1 == "R") {
+
+        } else if(q_1 == "A") {
+            ctx.fillStyle = "#000";
+            ctx.font = "bold " + (height * 0.5) + "px Arial";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText("Aula", x + width / 2, y + height / 2);
+        } else if(q_1 == "T") {
+
         }
         
         // Box 2
