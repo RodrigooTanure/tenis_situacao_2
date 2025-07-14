@@ -295,7 +295,8 @@
 
     $("input[type='time']").on("change", function() {
         // alert("qwe");
-        $(this).parent().find("span").text("Prev. " + $(this).val());
+        let prev = ($(this).parent().parent().find("select").val() == '0' ? 'Prev. ' : 'Ate ');
+        $(this).parent().find("span").text(prev + $(this).val());
     })
 
     $(".btn_sem_prev").on("click", function() {
@@ -311,6 +312,8 @@
         } else {
             $(this).parent().find("div").show();
         }
+
+        $(this).parent().find("span").text("Sem Prev.");
     })
          document.querySelector("#btn_prv_q_1").addEventListener("click", function() {
                 document.querySelector("#ipt_prv_q_1").showPicker 
