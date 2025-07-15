@@ -295,7 +295,7 @@
 
     $("input[type='time']").on("change", function() {
         // alert("qwe");
-        let prev = ($(this).parent().parent().find("select").val() == '0' ? 'Prev. ' : 'Ate ');
+        let prev = ($(this).parent().parent().find("select").val() == '0' ? 'Prev. ' : '');
         $(this).parent().find("span").text(prev + $(this).val());
     })
 
