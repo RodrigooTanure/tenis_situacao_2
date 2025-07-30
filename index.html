@@ -50,7 +50,19 @@
 
     .btn_sem_prev {
         font-size: 1.4em;
-         background: linear-gradient(45deg, #8b0000, #ff4d4d);
+        background: linear-gradient(45deg, #8b0000, #ff4d4d);
+    }
+    
+    .btn_lib_prev, .btn_lib_ja {
+        font-size: 1.4em;
+    }
+
+    .btn_lib_ja {
+        background: linear-gradient(45deg, #8b0000, #ff4d4d);
+    }
+    
+    .btn_lib_prev {
+        background: linear-gradient(45deg, #f9d423, #00c6a7);
     }
 
     select {
@@ -104,17 +116,23 @@
                 <option value="A">Aula</option>
                 <option value="T">Torneio</option>
             </select>  
-            <div style="display: none;">
-                <input type="time" id="ipt_prv_q_1">
+            <div>
+                <input type="time" id="ipt_prv_q_1" value="10:00">
                 <br>
-                <p class="div-prev"><span id="previsao_1">Sem Prev.</span></p>
+                <p class="div-prev"><span id="previsao_1">Liberada!</span></p>
                 <br>
                 <div style="display: flex;">
-                    <div style="width: 60%; padding-right: 5px;">
+                    <div class="div-inter" style="width: 60%; padding-right: 5px; display: none;">
                         <button class="btn_prev" id="btn_prv_q_1">Previsao Retorno</button>
                     </div>
-                    <div style="width: 40%; padding-left: 5px;">
+                    <div class="div-inter" style="width: 40%; padding-left: 5px; display: none;">
                         <button class="btn_sem_prev" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Sem Previsão</button>
+                    </div>                    
+                    <div class="div-lib" style="width: 50%; padding-right: 5px;">
+                        <button class="btn_lib_prev">Prev. Libeiração</button>
+                    </div>
+                    <div class="div-lib" style="width: 50%; padding-left: 5px;">
+                        <button class="btn_lib_ja" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Já liberado</button>
                     </div>                    
                 </div>
             </div>
@@ -129,18 +147,24 @@
                 <option value="A">Aula</option>
                 <option value="T">Torneio</option>
             </select>  
-            <div style="display: none;">
+            <div>
                 <input type="time" id="ipt_prv_q_2">
                 <br>
-                <p class="div-prev"><span id="previsao_2">Sem Prev.</span></p>
+                <p class="div-prev"><span id="previsao_2">Liberada!</span></p>
                 <br>
                 <div style="display: flex;">
-                    <div style="width: 60%; padding-right: 5px;">
+                    <div class="div-inter" style="width: 60%; padding-right: 5px; display: none;">
                         <button class="btn_prev" id="btn_prv_q_2">Previsao Retorno</button>
                     </div>
-                    <div style="width: 40%; padding-left: 5px;">
+                    <div class="div-inter" style="width: 40%; padding-left: 5px; display: none;">
                         <button class="btn_sem_prev" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Sem Previsão</button>
                     </div>                    
+                    <div class="div-lib" style="width: 50%; padding-right: 5px;">
+                        <button class="btn_lib_prev">Prev. Libeiração</button>
+                    </div>
+                    <div class="div-lib" style="width: 50%; padding-left: 5px;">
+                        <button class="btn_lib_ja" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Já liberado</button>
+                    </div>                     
                 </div>
             </div>
         </div>
@@ -154,18 +178,24 @@
                 <option value="A">Aula</option>
                 <option value="T">Torneio</option>
             </select>  
-            <div style="display: none;">
+            <div>
                 <input type="time" id="ipt_prv_q_3">
                 <br>
-                <p class="div-prev"><span id="previsao_3">Sem Prev.</span></p>
+                <p class="div-prev"><span id="previsao_3">Liberada!</span></p>
                 <br>
                 <div style="display: flex;">
-                    <div style="width: 60%; padding-right: 5px;">
+                   <div class="div-inter" style="width: 60%; padding-right: 5px; display: none;">
                         <button class="btn_prev" id="btn_prv_q_3">Previsao Retorno</button>
                     </div>
-                    <div style="width: 40%; padding-left: 5px;">
+                    <div class="div-inter" style="width: 40%; padding-left: 5px; display: none;">
                         <button class="btn_sem_prev" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Sem Previsão</button>
                     </div>                    
+                    <div class="div-lib" style="width: 50%; padding-right: 5px;">
+                        <button class="btn_lib_prev">Prev. Libeiração</button>
+                    </div>
+                    <div class="div-lib" style="width: 50%; padding-left: 5px;">
+                        <button class="btn_lib_ja" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Já liberado</button>
+                    </div>                      
                 </div>
             </div>
         </div>
@@ -179,18 +209,24 @@
                 <option value="A">Aula</option>
                 <option value="T">Torneio</option>
             </select>  
-            <div style="display: none;">
+            <div>
                 <input type="time" id="ipt_prv_q_4">
                 <br>
-                <p class="div-prev"><span id="previsao_4">Sem Prev.</span></p>
+                <p class="div-prev"><span id="previsao_4">Liberada!</span></p>
                 <br>
                 <div style="display: flex;">
-                    <div style="width: 60%; padding-right: 5px;">
+                   <div class="div-inter" style="width: 60%; padding-right: 5px; display: none;">
                         <button class="btn_prev" id="btn_prv_q_4">Previsao Retorno</button>
                     </div>
-                    <div style="width: 40%; padding-left: 5px;">
+                    <div class="div-inter" style="width: 40%; padding-left: 5px; display: none;">
                         <button class="btn_sem_prev" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Sem Previsão</button>
                     </div>                    
+                    <div class="div-lib" style="width: 50%; padding-right: 5px;">
+                        <button class="btn_lib_prev">Prev. Libeiração</button>
+                    </div>
+                    <div class="div-lib" style="width: 50%; padding-left: 5px;">
+                        <button class="btn_lib_ja" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Já liberado</button>
+                    </div>                
                 </div>
             </div>
         </div>
@@ -204,18 +240,24 @@
                 <option value="A">Aula</option>
                 <option value="T">Torneio</option>
             </select>  
-            <div style="display: none;">
+            <div>
                 <input type="time" id="ipt_prv_q_5">
                 <br>
-                <p class="div-prev"><span id="previsao_5">Sem Prev.</span></p>
+                <p class="div-prev"><span id="previsao_5">Liberada!</span></p>
                 <br>
                 <div style="display: flex;">
-                    <div style="width: 60%; padding-right: 5px;">
+                     <div class="div-inter" style="width: 60%; padding-right: 5px; display: none;">
                         <button class="btn_prev" id="btn_prv_q_5">Previsao Retorno</button>
                     </div>
-                    <div style="width: 40%; padding-left: 5px;">
+                    <div class="div-inter" style="width: 40%; padding-left: 5px; display: none;">
                         <button class="btn_sem_prev" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Sem Previsão</button>
                     </div>                    
+                    <div class="div-lib" style="width: 50%; padding-right: 5px;">
+                        <button class="btn_lib_prev">Prev. Libeiração</button>
+                    </div>
+                    <div class="div-lib" style="width: 50%; padding-left: 5px;">
+                        <button class="btn_lib_ja" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Já liberado</button>
+                    </div>                        
                 </div>
             </div>
         </div>
@@ -229,18 +271,24 @@
                 <option value="A">Aula</option>
                 <option value="T">Torneio</option>
             </select>  
-            <div style="display: none;">
+            <div>
                 <input type="time" id="ipt_prv_q_6">
                 <br>
-                <p class="div-prev"><span id="previsao_6">Sem Prev.</span></p>
+                <p class="div-prev"><span id="previsao_6">Liberada!</span></p>
                 <br>
                 <div style="display: flex;">
-                    <div style="width: 60%; padding-right: 5px;">
+                     <div class="div-inter" style="width: 60%; padding-right: 5px; display: none;">
                         <button class="btn_prev" id="btn_prv_q_6">Previsao Retorno</button>
                     </div>
-                    <div style="width: 40%; padding-left: 5px;">
+                    <div class="div-inter" style="width: 40%; padding-left: 5px; display: none;">
                         <button class="btn_sem_prev" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Sem Previsão</button>
                     </div>                    
+                    <div class="div-lib" style="width: 50%; padding-right: 5px;">
+                        <button class="btn_lib_prev">Prev. Libeiração</button>
+                    </div>
+                    <div class="div-lib" style="width: 50%; padding-left: 5px;">
+                        <button class="btn_lib_ja" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Já liberado</button>
+                    </div>                          
                 </div>
             </div>
         </div>
@@ -254,18 +302,24 @@
                 <option value="A">Aula</option>
                 <option value="T">Torneio</option>
             </select>  
-            <div style="display: none;">
+            <div>
                 <input type="time" id="ipt_prv_q_7">
                 <br>
-                <p class="div-prev"><span id="previsao_7">Sem Prev.</span></p>
+                <p class="div-prev"><span id="previsao_7">Liberada!</span></p>
                 <br>
                 <div style="display: flex;">
-                    <div style="width: 60%; padding-right: 5px;">
+                     <div class="div-inter" style="width: 60%; padding-right: 5px; display: none;">
                         <button class="btn_prev" id="btn_prv_q_7">Previsao Retorno</button>
                     </div>
-                    <div style="width: 40%; padding-left: 5px;">
+                    <div class="div-inter" style="width: 40%; padding-left: 5px; display: none;">
                         <button class="btn_sem_prev" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Sem Previsão</button>
                     </div>                    
+                    <div class="div-lib" style="width: 50%; padding-right: 5px;">
+                        <button class="btn_lib_prev">Prev. Libeiração</button>
+                    </div>
+                    <div class="div-lib" style="width: 50%; padding-left: 5px;">
+                        <button class="btn_lib_ja" style="background-color: linear-gradient(135deg, #00c6ff, #0072ff);">Já liberado</button>
+                    </div>                      
                 </div>
             </div>
         </div>
@@ -295,7 +349,8 @@
 
     $("input[type='time']").on("change", function() {
         // alert("qwe");
-        let prev = ($(this).parent().parent().find("select").val() == '0' ? 'Prev. ' : '');
+        let prev = ($(this).parent().parent().find("select").val() == '0' ? 'Prev. ' : ' Lib. ');
+
         $(this).parent().find("span").text(prev + $(this).val());
     })
 
@@ -308,13 +363,36 @@
         console.log($(this).val());
         console.log($(this).parent().find("div").html());
         if($(this).val() == 1) {
-            $(this).parent().find("div").hide();
+            $(this).parent().find(".div-inter").hide();
+            $(this).parent().find(".div-lib").show();
+            $(this).parent().find("span").text('Liberada!')
         } else {
-            $(this).parent().find("div").show();
+            $(this).parent().find(".div-inter").show();
+            $(this).parent().find(".div-lib").hide();
+            $(this).parent().find("span").text("Sem Prev.");
         }
 
-        $(this).parent().find("span").text("Sem Prev.");
-    })
+    });
+
+    document.querySelectorAll(".btn_lib_prev").forEach(function(button) {
+        button.addEventListener("click", function() {
+            // Sobe três níveis e procura o input
+            const input = this.parentElement?.parentElement?.parentElement?.querySelector("input[type='time']");
+
+            if (input) {
+                // Tenta abrir o seletor nativo de hora
+                if (input.showPicker) {
+                    input.showPicker(); // Chrome, Edge
+                } else {
+                    input.focus(); // fallback
+                }
+
+                // Loga o valor atual
+                console.log(input.value);
+            }
+        });
+    });
+
          document.querySelector("#btn_prv_q_1").addEventListener("click", function() {
                 document.querySelector("#ipt_prv_q_1").showPicker 
             ? document.querySelector("#ipt_prv_q_1").showPicker()  // Chrome e Edge suportam showPicker
@@ -413,11 +491,7 @@
             let x = 55; // distância da esquerda do canvas
             let y = 65; // distância do topo do canvas
             let width = 50;
-            let height = 50;
-
-            if(q_1 != '1') {
-                height = height - 10
-            }
+            let height = 40;
 
             // Desenha o retângulo azul
             ctx.fillStyle = cor_1;
@@ -429,6 +503,15 @@
             ctx.lineCap = 'round';
 
         if(q_1 == "1") {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.3)"; // preto com 30% de opacidade
+            ctx.fillRect(x - 20, y + 44, width + 40, height - 15);
+
+            // Agora desenha o texto centralizado dentro dessa caixa
+            ctx.fillStyle = "white"; // cor do texto
+            ctx.font = "bold 16px Arial";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
             ctx.beginPath();
             // Começa no canto inferior esquerdo do check
             ctx.moveTo(x + width * 0.2, y + height * 0.55);
@@ -438,6 +521,8 @@
             ctx.lineTo(x + width * 0.8, y + height * 0.3);
             
             ctx.stroke();
+
+            
         } else if(q_1 == "0") {
             
             ctx.fillStyle = "rgba(0, 0, 0, 0.3)"; // preto com 30% de opacidade
@@ -449,11 +534,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_1").text(), centerX, centerY);            
 
             ctx.beginPath();
             // Linha diagonal da esquerda superior para direita inferior
@@ -475,11 +555,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_1").text(), centerX, centerY);            
 
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.4) + "px Arial";
@@ -498,11 +573,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_1").text(), centerX, centerY);            
             
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.5) + "px Arial";
@@ -531,6 +601,12 @@
             ctx.textBaseline = "middle";
             ctx.fillText("Torn. 9", x + width / 2, y + height / 2);
         }
+
+        // Calcula o centro da caixa
+        let centerX = (x - 20) + (width + 40) / 2;
+        let centerY = (y + 44) + (height - 15) / 2;
+
+        ctx.fillText($("#previsao_1").text(), centerX, centerY);  
         
         // Box 2
         let q_2 = document.querySelector("#q_2").value;
@@ -540,12 +616,8 @@
         x = 185; // distância da esquerda do canvas
         y = 65; // distância do topo do canvas
         width = 50;
-        height = 50;
+        height = 40;
         
-        if(q_2 != '1') {
-            height = height - 10
-        }
-
         // Desenha o retângulo azul
         ctx.fillStyle = cor_2;
         ctx.fillRect(x, y, width, height);
@@ -556,6 +628,15 @@
         ctx.lineCap = 'round';
         
         if(q_2 == "1") { 
+            ctx.fillStyle = "rgba(0, 0, 0, 0.3)"; // preto com 30% de opacidade
+            ctx.fillRect(x - 20, y + 44, width + 40, height - 15);
+
+            // Agora desenha o texto centralizado dentro dessa caixa
+            ctx.fillStyle = "white"; // cor do texto
+            ctx.font = "bold 16px Arial";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+        
             ctx.beginPath();
             // Começa no canto inferior esquerdo do check
             ctx.moveTo(x + width * 0.2, y + height * 0.55);
@@ -575,12 +656,6 @@
             ctx.font = "bold 16px Arial";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_2").text(), centerX, centerY);            
 
             ctx.beginPath();
             // Linha diagonal da esquerda superior para direita inferior
@@ -602,12 +677,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_2").text(), centerX, centerY);            
-
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.4) + "px Arial";
             ctx.textAlign = "center";
@@ -625,12 +694,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_2").text(), centerX, centerY);            
-            
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.5) + "px Arial";
             ctx.textAlign = "center";
@@ -646,18 +709,18 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_2").text(), centerX, centerY);          
-
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.3) + "px Arial";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
             ctx.fillText("Torn. 9", x + width / 2, y + height / 2);
         }
+
+        // Calcula o centro da caixa
+        centerX = (x - 20) + (width + 40) / 2;
+        centerY = (y + 44) + (height - 15) / 2;
+
+        ctx.fillText($("#previsao_2").text(), centerX, centerY); 
         
         // Box 3
         let q_3 = document.querySelector("#q_3").value;
@@ -666,12 +729,8 @@
         x = 305; // distância da esquerda do canvas
         y = 65; // distância do topo do canvas
         width = 50;
-        height = 50;
+        height = 40;
 
-        if(q_3 != '1') {
-            height = height - 10
-        }
-        
         // Desenha o retângulo azul
         ctx.fillStyle = cor_3;
         ctx.fillRect(x, y, width, height);
@@ -682,6 +741,15 @@
         ctx.lineCap = 'round';
         
         if(q_3 == "1") { 
+            ctx.fillStyle = "rgba(0, 0, 0, 0.3)"; // preto com 30% de opacidade
+            ctx.fillRect(x - 20, y + 44, width + 40, height - 15);
+
+            // Agora desenha o texto centralizado dentro dessa caixa
+            ctx.fillStyle = "white"; // cor do texto
+            ctx.font = "bold 16px Arial";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
             ctx.beginPath();
             // Começa no canto inferior esquerdo do check
             ctx.moveTo(x + width * 0.2, y + height * 0.55);
@@ -701,12 +769,6 @@
             ctx.font = "bold 16px Arial";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_3").text(), centerX, centerY);            
 
             ctx.beginPath();
             // Linha diagonal da esquerda superior para direita inferior
@@ -728,12 +790,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_3").text(), centerX, centerY);            
-
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.4) + "px Arial";
             ctx.textAlign = "center";
@@ -751,12 +807,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_3").text(), centerX, centerY);            
-            
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.5) + "px Arial";
             ctx.textAlign = "center";
@@ -772,18 +822,19 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_3").text(), centerX, centerY);          
-
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.3) + "px Arial";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
             ctx.fillText("Torn. 9", x + width / 2, y + height / 2);
         }
+
+        
+        // Calcula o centro da caixa
+        centerX = (x - 20) + (width + 40) / 2;
+        centerY = (y + 44) + (height - 15) / 2;
+
+        ctx.fillText($("#previsao_3").text(), centerX, centerY); 
         
         // Box 4
         let q_4 = document.querySelector("#q_4").value;
@@ -792,12 +843,8 @@
         x = 55; // distância da esquerda do canvas
         y = 205; // distância do topo do canvas
         width = 50;
-        height = 50;
+        height = 40;
         
-        if(q_4 != '1') {
-            height = height - 10;
-        }
-
         // Desenha o retângulo azul
         ctx.fillStyle = cor_4;
         ctx.fillRect(x, y, width, height);
@@ -808,6 +855,15 @@
         ctx.lineCap = 'round';
         
         if(q_4 == "1") { 
+            ctx.fillStyle = "rgba(0, 0, 0, 0.3)"; // preto com 30% de opacidade
+            ctx.fillRect(x - 20, y + 44, width + 40, height - 15);
+
+            // Agora desenha o texto centralizado dentro dessa caixa
+            ctx.fillStyle = "white"; // cor do texto
+            ctx.font = "bold 16px Arial";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
             ctx.beginPath();
             // Começa no canto inferior esquerdo do check
             ctx.moveTo(x + width * 0.2, y + height * 0.55);
@@ -827,12 +883,6 @@
             ctx.font = "bold 16px Arial";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_4").text(), centerX, centerY);            
 
             ctx.beginPath();
             // Linha diagonal da esquerda superior para direita inferior
@@ -854,12 +904,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_4").text(), centerX, centerY);            
-
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.4) + "px Arial";
             ctx.textAlign = "center";
@@ -877,12 +921,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_4").text(), centerX, centerY);            
-            
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.5) + "px Arial";
             ctx.textAlign = "center";
@@ -898,18 +936,19 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_4").text(), centerX, centerY);          
-
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.3) + "px Arial";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
             ctx.fillText("Torn. 9", x + width / 2, y + height / 2);
         }
+
+        
+        // Calcula o centro da caixa
+        centerX = (x - 20) + (width + 40) / 2;
+        centerY = (y + 44) + (height - 15) / 2;
+
+        ctx.fillText($("#previsao_4").text(), centerX, centerY); 
         
         // Box 5
         let q_5 = document.querySelector("#q_5").value;
@@ -918,12 +957,8 @@
         x = 185; // distância da esquerda do canvas
         y = 205; // distância do topo do canvas
         width = 50;
-        height = 50;
+        height = 40;
         
-        if(q_5 != '1') {
-            height = height - 10;
-        }
-
         // Desenha o retângulo azul
         ctx.fillStyle = cor_5;
         ctx.fillRect(x, y, width, height);
@@ -934,6 +969,15 @@
         ctx.lineCap = 'round';
         
         if(q_5 == "1") {  
+            ctx.fillStyle = "rgba(0, 0, 0, 0.3)"; // preto com 30% de opacidade
+            ctx.fillRect(x - 20, y + 44, width + 40, height - 15);
+
+            // Agora desenha o texto centralizado dentro dessa caixa
+            ctx.fillStyle = "white"; // cor do texto
+            ctx.font = "bold 16px Arial";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
             ctx.beginPath();
             // Começa no canto inferior esquerdo do check
             ctx.moveTo(x + width * 0.2, y + height * 0.55);
@@ -953,12 +997,6 @@
             ctx.font = "bold 16px Arial";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_5").text(), centerX, centerY);            
 
             ctx.beginPath();
             // Linha diagonal da esquerda superior para direita inferior
@@ -980,12 +1018,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_5").text(), centerX, centerY);            
-
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.4) + "px Arial";
             ctx.textAlign = "center";
@@ -1003,12 +1035,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_5").text(), centerX, centerY);            
-            
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.5) + "px Arial";
             ctx.textAlign = "center";
@@ -1036,6 +1062,12 @@
             ctx.textBaseline = "middle";
             ctx.fillText("Torn. 9", x + width / 2, y + height / 2);
         }
+
+        // Calcula o centro da caixa
+        centerX = (x - 20) + (width + 40) / 2;
+        centerY = (y + 44) + (height - 15) / 2;
+
+        ctx.fillText($("#previsao_5").text(), centerX, centerY); 
         
         // Box 6
         let q_6 = document.querySelector("#q_6").value;
@@ -1044,12 +1076,8 @@
         x = 310; // distância da esquerda do canvas
         y = 208; // distância do topo do canvas
         width = 50;
-        height = 50;
+        height = 40;
         
-        if(q_6 != '1') {
-            height = height - 10;
-        }
-
         // Desenha o retângulo azul
         ctx.fillStyle = cor_6;
         ctx.fillRect(x, y, width, height);
@@ -1060,6 +1088,15 @@
         ctx.lineCap = 'round';
         
         if(q_6 == "1") {  
+            ctx.fillStyle = "rgba(0, 0, 0, 0.3)"; // preto com 30% de opacidade
+            ctx.fillRect(x - 20, y + 44, width + 40, height - 15);
+
+            // Agora desenha o texto centralizado dentro dessa caixa
+            ctx.fillStyle = "white"; // cor do texto
+            ctx.font = "bold 16px Arial";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
             ctx.beginPath();
             // Começa no canto inferior esquerdo do check
             ctx.moveTo(x + width * 0.2, y + height * 0.55);
@@ -1079,12 +1116,6 @@
             ctx.font = "bold 16px Arial";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_6").text(), centerX, centerY);            
 
             ctx.beginPath();
             // Linha diagonal da esquerda superior para direita inferior
@@ -1106,12 +1137,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_6").text(), centerX, centerY);            
-
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.4) + "px Arial";
             ctx.textAlign = "center";
@@ -1129,12 +1154,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_6").text(), centerX, centerY);            
-            
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.5) + "px Arial";
             ctx.textAlign = "center";
@@ -1150,18 +1169,18 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_6").text(), centerX, centerY);          
-
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.3) + "px Arial";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
             ctx.fillText("Torn. 9", x + width / 2, y + height / 2);
         }
+
+        // Calcula o centro da caixa
+        centerX = (x - 20) + (width + 40) / 2;
+        centerY = (y + 44) + (height - 15) / 2;
+
+        ctx.fillText($("#previsao_6").text(), centerX, centerY); 
         
         // Box 7
         let q_7 = document.querySelector("#q_7").value;
@@ -1170,7 +1189,7 @@
         x = 185; // distância da esquerda do canvas
         y = 328; // distância do topo do canvas
         width = 50;
-        height = 50;
+        height = 40;
         
         if(q_7 != '1') {
             height = height - 10;
@@ -1187,6 +1206,15 @@
         
         
         if(q_7 == "1") {  
+            ctx.fillStyle = "rgba(0, 0, 0, 0.3)"; // preto com 30% de opacidade
+            ctx.fillRect(x - 20, y + 44, width + 40, height - 15);
+
+            // Agora desenha o texto centralizado dentro dessa caixa
+            ctx.fillStyle = "white"; // cor do texto
+            ctx.font = "bold 16px Arial";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
             ctx.beginPath();
             // Começa no canto inferior esquerdo do check
             ctx.moveTo(x + width * 0.2, y + height * 0.55);
@@ -1206,12 +1234,6 @@
             ctx.font = "bold 16px Arial";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_7").text(), centerX, centerY);            
 
             ctx.beginPath();
             // Linha diagonal da esquerda superior para direita inferior
@@ -1233,12 +1255,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_7").text(), centerX, centerY);            
-
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.4) + "px Arial";
             ctx.textAlign = "center";
@@ -1256,12 +1272,6 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_7").text(), centerX, centerY);            
-            
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.5) + "px Arial";
             ctx.textAlign = "center";
@@ -1277,18 +1287,18 @@
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
 
-            // Calcula o centro da caixa
-            let centerX = (x - 20) + (width + 40) / 2;
-            let centerY = (y + 44) + (height - 15) / 2;
-
-            ctx.fillText($("#previsao_7").text(), centerX, centerY);          
-
             ctx.fillStyle = "#fff";
             ctx.font = "bold " + (height * 0.3) + "px Arial";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
             ctx.fillText("Torn. 9", x + width / 2, y + height / 2);
         }
+
+        // Calcula o centro da caixa
+        centerX = (x - 20) + (width + 40) / 2;
+        centerY = (y + 44) + (height - 15) / 2;
+
+        ctx.fillText($("#previsao_7").text(), centerX, centerY); 
 
         let x_8 = 5; // distância da esquerda do canvas
         let y_8 = 310; // distância do topo do canvas
